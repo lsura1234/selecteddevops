@@ -12,6 +12,9 @@ function useQuery(model) {
     setIsRefetch(!isRefetch)
   }
 
+
+  useEffect(async() => {
+    
   const fetchData = async () => {
     setIsLoading(true)
     try {
@@ -22,8 +25,6 @@ function useQuery(model) {
     }
     setIsLoading(false)
   }
-
-  useEffect(() => {
     fetchData()
   }, [isRefetch])
 
