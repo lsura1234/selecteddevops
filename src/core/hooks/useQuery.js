@@ -12,10 +12,7 @@ function useQuery(model) {
     setIsRefetch(!isRefetch)
   }
 
-
-  useEffect(async() => {
-    
-  const fetchData = async () => {
+const fetchData = async () => {
     setIsLoading(true)
     try {
       const resp = await model()
@@ -25,7 +22,10 @@ function useQuery(model) {
     }
     setIsLoading(false)
   }
-    fetchData()
+  
+  useEffect(() => {   
+     fetchData()
+    // eslint-disable-next-line to the line before.
   }, [isRefetch])
 
   const result = { data, isLoading, setIsLoading, reloadData }
